@@ -1,9 +1,130 @@
-@import 'tailwindcss';
+@layer theme, base, primevue, components, utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@import 'tailwindcss';
+@plugin 'tailwindcss-primeui';
+@import 'primeicons/primeicons.css';
+
+@source '../js/**/*.vue';
+@source '../views/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Barlow Condensed', 'Inter', ui-sans-serif, sans-serif;
+
+    /* "Ink" — the near-black neutral scale the whole dark UI is built on */
+    --color-ink-50: #f5f6f7;
+    --color-ink-100: #e8e9eb;
+    --color-ink-200: #c9ccd1;
+    --color-ink-300: #a3a8b0;
+    --color-ink-400: #7c828c;
+    --color-ink-500: #5b616b;
+    --color-ink-600: #3b4048;
+    --color-ink-700: #272b32;
+    --color-ink-800: #1a1d22;
+    --color-ink-850: #141619;
+    --color-ink-900: #0f1113;
+    --color-ink-950: #0a0b0d;
+
+    /* "Signal" — the MotoVerse group accent */
+    --color-signal-300: #ffb08a;
+    --color-signal-400: #ff8a55;
+    --color-signal-500: #ff6b2c;
+    --color-signal-600: #e85414;
+    --color-signal-700: #bf410b;
+
+    --animate-ken-burns: ken-burns 18s ease-out both;
+    --animate-marquee: marquee 40s linear infinite;
+
+    @keyframes ken-burns {
+        from { transform: scale(1.12); }
+        to { transform: scale(1); }
+    }
+
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+        color-scheme: dark;
+    }
+
+    ::selection {
+        background: var(--color-signal-500);
+        color: var(--color-ink-950);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-signal-500);
+        outline-offset: 3px;
+    }
+}
+
+@layer components {
+    .container-site {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-signal-400;
+    }
+
+    .eyebrow::before {
+        content: '';
+        @apply h-px w-8 bg-current;
+    }
+
+    .heading-display {
+        @apply font-display font-bold uppercase leading-[0.92] tracking-tight text-white;
+    }
+
+    .card-surface {
+        @apply rounded-2xl border border-white/[0.06] bg-ink-900;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+        @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .btn-primary {
+        @apply bg-signal-500 text-ink-950 hover:bg-signal-400 active:bg-signal-600;
+    }
+
+    .btn-ghost {
+        @apply border border-white/15 text-white hover:border-white/40 hover:bg-white/5;
+    }
+
+    /* Scroll-reveal states toggled by the v-reveal directive */
+    .reveal {
+        @apply translate-y-6 opacity-0 transition duration-700 ease-out;
+    }
+
+    .reveal.is-visible {
+        @apply translate-y-0 opacity-100;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        transform: none;
+        opacity: 1;
+    }
 }

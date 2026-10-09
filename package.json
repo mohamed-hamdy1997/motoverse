@@ -15,5 +15,14 @@
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^3.8.0",
+        "@primeuix/themes": "^2.0.3",
+        "@vitejs/plugin-vue": "^6.0.9",
+        "primeicons": "^7.0.0",
+        "primevue": "^4.5.5",
+        "tailwindcss-primeui": "^0.6.1",
+        "vue": "^3.5.43"
     }
 }
