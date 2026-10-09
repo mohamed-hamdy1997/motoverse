@@ -367,4 +367,4 @@ do not imply any affiliation.
 - [x] Assumptions (section 7)
 - [x] Attribution, references and AI disclosure (section 8)
 - [x] Deployed URL — https://motoverse.wasmer.app
-- [ ] Video demo — *to be recorded*
+- [x] Video demo — https://www.awesomescreenshot.com/video/57313504?key=84738da9af2a473e4a356bdae640afdc
