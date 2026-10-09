@@ -22,7 +22,7 @@
         </form>
 
         <div v-if="$page.props.appEnv !== 'production'" class="mt-8 rounded-xl border border-dashed border-white/10 p-4 text-xs leading-relaxed text-ink-400">
-            <p class="mb-2 font-semibold uppercase tracking-wider text-ink-300">Demo accounts · password “password”</p>
+            <p class="mb-2 font-semibold uppercase tracking-wider text-ink-300">Demo accounts · password “<span class="lowercase">password</span>”</p>
             <ul class="space-y-1">
                 <li v-for="account in demoAccounts" :key="account.email">
                     <button type="button" class="cursor-pointer text-signal-300 hover:underline" @click="useAccount(account.email)">{{ account.email }}</button>
