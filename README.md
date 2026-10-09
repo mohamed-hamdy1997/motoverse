@@ -366,5 +366,5 @@ do not imply any affiliation.
 - [x] Database planning and ERD (section 6)
 - [x] Assumptions (section 7)
 - [x] Attribution, references and AI disclosure (section 8)
-- [ ] Deployed URL — *to be added*
+- [x] Deployed URL — https://motoverse.wasmer.app
 - [ ] Video demo — *to be recorded*
