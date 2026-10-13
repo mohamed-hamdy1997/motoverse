@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "@inertiajs/vue3": "^3.8.0",
+        "@intl-tel-input/vue": "^29.5.4",
         "@primeuix/themes": "^2.0.3",
         "@vitejs/plugin-vue": "^6.0.9",
         "primeicons": "^7.0.0",

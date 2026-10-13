@@ -58,7 +58,7 @@
                             <ElFloatingDropdown :form="form" name="showroom_id" label="Preferred showroom" :options="showroomOptions" clearable/>
 
                             <ElFloatingInput :form="form" name="name" label="Full name" autocomplete="name" required/>
-                            <ElFloatingInput :form="form" name="phone" label="Mobile number" type="tel" autocomplete="tel" required/>
+                            <ElFloatingPhoneInput :form="form" name="phone" label="Mobile number" required/>
                             <ElFloatingInput :form="form" name="email" label="Email address" type="email" autocomplete="email" required/>
                             <ElFloatingDatePicker :form="form" name="preferred_date" label="Preferred date" :min-date="today"/>
                             <ElFloatingTextarea :form="form" name="message" label="Anything we should know? (optional)" :rows="3" class="sm:col-span-2"/>
@@ -86,6 +86,7 @@ import ElFloatingDropdown from '@/Components/Form/ElFloatingDropdown.vue';
 import ElFloatingDatePicker from '@/Components/Form/ElFloatingDatePicker.vue';
 import ElFloatingTextarea from '@/Components/Form/ElFloatingTextarea.vue';
 import {groupModelsByBrand, useHomeIntent} from '@/Composables/useHomeIntent.js';
+import ElFloatingPhoneInput from "@/Components/Form/ElFloatingPhoneInput.vue";
 
 const props = defineProps({
     brands: {type: Array, required: true},
