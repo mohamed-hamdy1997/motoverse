@@ -41,6 +41,7 @@ class StoreEnquiryRequest extends FormRequest
     {
         return [
             'motorcycle_id.required' => 'Please choose the model you would like to test ride.',
+            'email.regex' => 'The email field must be a valid email address.',
         ];
     }
 }
