@@ -27,7 +27,7 @@ class StoreEnquiryRequest extends FormRequest
             ],
             'showroom_id' => ['nullable', 'integer', Rule::exists('showrooms', 'id')],
             'name' => ['required', 'string', 'min:2', 'max:100'],
-            'email' => ['required', 'string', 'email', 'max:150'],
+            'email' => ['required', 'string', 'email:rfc,dns', 'max:150'],
             'phone' => ['required', 'string', 'max:30', new PhoneNumber],
             'preferred_date' => ['nullable', 'date', 'after_or_equal:today', 'before:+6 months'],
             'message' => ['nullable', 'string', 'max:1000'],
